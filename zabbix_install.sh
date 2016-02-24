@@ -22,7 +22,7 @@ apt-get install zabbix-server-mysql zabbix-frontend-php zabbix-agent -y > /dev/n
 # Creating initial database
 mysql -e "UPDATE mysql.user SET Password = PASSWORD('MYSQL_ROOT_PASS') WHERE User = 'root';FLUSH PRIVILEGES;"
 
-mysql --user=root --password=53HKyDARP7eUoszUUfcp -e "create database zabbix character set utf8 collate utf8_bin;grant all privileges on zabbix.* to zabbix@localhost identified by 'bCAui5PUqsf4l30kpM3S';FLUSH PRIVILEGES;"
+mysql --user=root --password=MYSQL_ROOT_PASS -e "create database zabbix character set utf8 collate utf8_bin;grant all privileges on zabbix.* to zabbix@localhost identified by 'bCAui5PUqsf4l30kpM3S';FLUSH PRIVILEGES;"
 
 zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql --user=root --password=MYSQL_ZABBIX_PASS zabbix
 
