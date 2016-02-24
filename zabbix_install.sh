@@ -1,6 +1,6 @@
 #!/bin/bash
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH
-set -x
+#set -x
 
 # Installing repository configuration package
 wget -P /tmp http://repo.zabbix.com/zabbix/3.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.0-1+trusty_all.deb
@@ -20,17 +20,17 @@ apt-get install php5-fpm php5-mysql php5-cli -y > /dev/null 2>&1
 apt-get install zabbix-server-mysql zabbix-frontend-php zabbix-agent -y > /dev/null 2>&1
 
 # Creating initial database
-mysql -e "UPDATE mysql.user SET Password = PASSWORD('53HKyDARP7eUoszUUfcp') WHERE User = 'root';FLUSH PRIVILEGES;"
+mysql -e "UPDATE mysql.user SET Password = PASSWORD('MYSQL_ROOT_PASS') WHERE User = 'root';FLUSH PRIVILEGES;"
 
 mysql --user=root --password=53HKyDARP7eUoszUUfcp -e "create database zabbix character set utf8 collate utf8_bin;grant all privileges on zabbix.* to zabbix@localhost identified by 'bCAui5PUqsf4l30kpM3S';FLUSH PRIVILEGES;"
 
-zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql --user=root --password=53HKyDARP7eUoszUUfcp zabbix
+zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql --user=root --password=MYSQL_ZABBIX_PASS zabbix
 
 # Starting Zabbix server process
 sed -i 's/# DBHost=.*/DBHost=localhost/' /etc/zabbix/zabbix_server.conf
 sed -i 's/# DBName=.*/DBHost=zabbix/' /etc/zabbix/zabbix_server.conf
 sed -i 's/# DBUser=.*/DBHost=zabbix/' /etc/zabbix/zabbix_server.conf
-sed -i 's/# DBPassword=.*/DBPassword=bCAui5PUqsf4l30kpM3S/' /etc/zabbix/zabbix_server.conf
+sed -i 's/# DBPassword=.*/DBPassword=MYSQL_ZABBIX_PASS/' /etc/zabbix/zabbix_server.conf
 
 service zabbix-server restart
 
