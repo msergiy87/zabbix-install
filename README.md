@@ -1,4 +1,5 @@
 # zabbix-install
+Installation script of Zabbix 3.0, Nginx, Mysql on Ubuntu 14.04
 
 Distros tested
 ------------
