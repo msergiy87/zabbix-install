@@ -9,11 +9,16 @@ Currently, this is only tested on Ubuntu 14.04. It should theoretically work on 
 Usage
 ------------
 
-Change this values in script and run
+Change this values in script
 ```
-MYSQL_ROOT_PASS
-
-MYSQL_ZABBIX_PASS
-
-date.timezone
+timezone_continent=Europe
+timezone_city=Paris
+MYSQL_ROOT_PASS=myrootpass
+MYSQL_ZABBIX_PASS=myzabbixpass
+nginx_server_name=$(hostname -I)
 ```
+
+When you run script from command line, and when it will request to enter mysql password, just press "Enter" key.
+You can run script from crontab also.
+
+The default Web Interface user name is "Admin", password "zabbix".
