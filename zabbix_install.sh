@@ -3,7 +3,7 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH
 #set -x
 
 timezone_continent=Europe
-timezone_city=Paris
+timezone_city=London
 MYSQL_ROOT_PASS=myrootpass
 MYSQL_ZABBIX_PASS=myzabbixpass
 nginx_server_name=$(hostname -I)
