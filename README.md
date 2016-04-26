@@ -12,7 +12,7 @@ Usage
 Change this values in script
 ```
 timezone_continent=Europe
-timezone_city=Paris
+timezone_city=London
 MYSQL_ROOT_PASS=myrootpass
 MYSQL_ZABBIX_PASS=myzabbixpass
 nginx_server_name=$(hostname -I)
