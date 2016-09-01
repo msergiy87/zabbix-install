@@ -36,8 +36,8 @@ zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql --user=root --pass
 
 # Starting Zabbix server process
 sed -i 's/# DBHost=.*/DBHost=localhost/' /etc/zabbix/zabbix_server.conf
-sed -i 's/# DBName=.*/DBHost=zabbix/' /etc/zabbix/zabbix_server.conf
-sed -i 's/# DBUser=.*/DBHost=zabbix/' /etc/zabbix/zabbix_server.conf
+sed -i 's/# DBName=.*/DBName=zabbix/' /etc/zabbix/zabbix_server.conf
+sed -i 's/# DBUser=.*/DBUser=zabbix/' /etc/zabbix/zabbix_server.conf
 sed -i "s/# DBPassword=.*/DBPassword="$MYSQL_ZABBIX_PASS"/" /etc/zabbix/zabbix_server.conf
 
 service zabbix-server restart
